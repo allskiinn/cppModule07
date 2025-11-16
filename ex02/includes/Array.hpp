@@ -14,21 +14,16 @@ class Array
 		unsigned int	_size;
 
 	public:
-	// Constructors
 		Array(): _size(0)
 		{
 			std::cout << "Default Constructor called: created empty Array of size 0" << std::endl;
 			this->_array = new T[this->_size];
-			// for (unsigned int i = 0; i < this->size(); i++)
-				// std::cout << this->_array << std::endl;
 		}
 
 		Array(unsigned int size): _size(size)
 		{
 			std::cout << "Constructor for an Array of size " << size << " called" << std::endl;
 			this->_array = new T[this->_size];
-			// for (unsigned int i = 0; i < this->size(); i++)
-			// 	std::cout << this->_array[i] << std::endl;
 		}
 
 		Array(const Array &src): _size(src.size())
@@ -38,14 +33,12 @@ class Array
 			*this = src;
 		}
 
-	// Deconstructors
 		~Array()
 		{
 			if (this->_array != NULL)
 				delete [] this->_array;
 		}
 
-	// Overloaded Operators
 		Array &operator=(const Array &src)
 		{
 			if (this->_array != NULL)
@@ -70,23 +63,15 @@ class Array
 			return (this->_array[index]);
 		}
 
-	// Exception
-
 		class	InvalidIndexException : public std::exception
 		{
 		public:
 			virtual const char	*what() const throw();
 		};
-	// Public Methods
-
-	// Getter
 		unsigned int size() const
 		{
 			return (this->_size);
 		}
-
-	// Setter
-
 };
 
 template< typename T >
